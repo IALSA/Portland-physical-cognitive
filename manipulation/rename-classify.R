@@ -15,6 +15,7 @@ requireNamespace("testit", quietly=TRUE)
 # requireNamespace("plyr", quietly=TRUE)
 
 # ---- declare_globals ---------------------------------------------------------
-path_input  <- "./data-phi-free/raw/mtcar.csv"
-path_output <- "./data-phi-free/derived/motor-trend-car-test.rds"
-figure_path <- 'manipulation/stitched-output/te/'
+path_input  <- "./data-phi-free/raw/results-physical-cognitive.csv"
+path_input  <- "https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/data/shared/results-physical-cognitive.csv"
+path_output <- "./data-phi-free/derived/results.rds"
+figure_path <- 'manipulation/stitched-output/rename-classify/'
