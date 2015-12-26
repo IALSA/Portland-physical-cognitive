@@ -42,11 +42,23 @@ t <- table(ds$subgroup, ds$study_name);t[t==0]<-".";t
 # ---- spell_model_type
 t <- table(ds$model_type, ds$study_name);t[t==0]<-".";t
 
-## @knitr correct_model_type
-ds[ds$model_type %in% c("aheplus", "aeplus") ,"model_type"] <- "aehplus"
-ds[ds$model_type=="age","model_type"] <- "a" # rename for sorting/consistency purposes
-ds[ds$model_type=="empty","model_type"] <- "0"
-t <- table(ds$model_type, ds$study_name);t[t==0]<-".";t
+
+# ---- correct_model_type ------------------------------------------------------
+model_type_key <- read.csv("./manipulation/model_type-entry-table.csv", stringsAsFactors = F)
+for(i in length(model_type_key$entry)){
+  entry <- model_type_key[i , "entry"]
+  category_short <- model_type_key[i , "category_short"]
+  ds$model_type_new <- gsub(pattern = entry, replacement = category_short, x = ds$model_type )
+}
+t <- table(ds$model_type_new, ds$study_name);t[t==0]<-".";t 
+
+
+
+## @knitr correct_model_typ_old
+# ds[ds$model_type %in% c("aheplus", "aeplus") ,"model_type"] <- "aehplus"
+# ds[ds$model_type=="age","model_type"] <- "a" # rename for sorting/consistency purposes
+# ds[ds$model_type=="empty","model_type"] <- "0"
+# t <- table(ds$model_type, ds$study_name);t[t==0]<-".";t
 
 # ---- spell_physical_measure -------------------------------------------------
 t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
