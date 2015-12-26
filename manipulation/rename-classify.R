@@ -46,7 +46,7 @@ t <- table(ds$model_type, ds$study_name);t[t==0]<-".";t
 # ---- correct_model_type ------------------------------------------------------
 
 # Read in the conversion table, and drop the `notes` variable.
-ds_model_type_key <- read.csv("./manipulation/model_type-entry-table.csv", stringsAsFactors = F) %>%
+ds_model_type_key <- read.csv("./manipulation/model-type-entry-table.csv", stringsAsFactors = F) %>%
   dplyr::select(-notes)
 
 # Join the model data frame to the conversion data frame.
