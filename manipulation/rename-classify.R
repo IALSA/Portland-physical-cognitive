@@ -44,15 +44,22 @@ t <- table(ds$model_type, ds$study_name);t[t==0]<-".";t
 
 
 # ---- correct_model_type ------------------------------------------------------
-model_type_key <- read.csv("./manipulation/model_type-entry-table.csv", stringsAsFactors = F)
-for(i in length(model_type_key$entry)){
-  entry <- model_type_key[i , "entry"]
-  category_short <- model_type_key[i , "category_short"]
-  ds$model_type_new <- gsub(pattern = entry, replacement = category_short, x = ds$model_type )
-}
-t <- table(ds$model_type_new, ds$study_name);t[t==0]<-".";t 
 
+# Read in the conversion table, and drop the `notes` variable.
+ds_model_type_key <- read.csv("./manipulation/model_type-entry-table.csv", stringsAsFactors = F) %>%
+  dplyr::select(-notes)
 
+# Join the model data frame to the conversion data frame.
+ds <- ds %>% 
+  dplyr::left_join(ds_model_type_key, by=c("model_type"="entry"))
+
+t <- table(ds$category_short, ds$study_name);t[t==0]<-".";t
+t <- table(ds$model_type, ds$category_short);t[t==0]<-".";t
+
+# Remove the old variable, and rename the cleaned/condensed variable.
+ds <- ds %>% 
+  dplyr::select(-model_type) %>% 
+  dplyr::rename_("model_type"="category_short")
 
 ## @knitr correct_model_typ_old
 # ds[ds$model_type %in% c("aheplus", "aeplus") ,"model_type"] <- "aehplus"
