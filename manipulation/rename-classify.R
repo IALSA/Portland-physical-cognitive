@@ -74,8 +74,8 @@ ds_physical_measure_key <- read.csv("./manipulation/physical-measure-entry-table
 ds <- ds %>% 
   dplyr::left_join(ds_physical_measure_key, by=c("physical_measure"="entry"))
 
-t <- table(ds$category_short, ds$study_name);t[t==0]<-".";t
-t <- table(ds$physical_measure, ds$category_short);t[t==0]<-".";t # raw rows, new columns
+t <- table(ds$category_short, ds[ ,"study_name"]);t[t==0]<-".";t
+t <- table(ds[ ,"physical_measure"], ds$category_short);t[t==0]<-".";t # raw rows, new columns
 
 # Remove the old variable, and rename the cleaned/condensed variable.
 ds <- ds %>% 
@@ -90,8 +90,37 @@ t <- table(ds$physical_measure, ds$study_name); t[t==0]<-"."; t
 
 ## @knitr spell_cognitive_measure
 t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
-d <- ds %>% dplyr::group_by_("cognitive_measure") %>% summarize(count=n())
-kable(d)
+d <- ds %>% dplyr::group_by_("cognitive_measure") %>% dplyr::summarize(count=n())
+knitr::kable(d)
+
+# ---- correct_cognitive_measure ------------------------------------------------
+# Read in the conversion table, and drop the `notes` variable.
+ds_cognitive_measure_key <- read.csv("./manipulation/cognitive-measure-entry-table.csv", stringsAsFactors = F) %>%
+  dplyr::select(-notes)
+
+# Join the model data frame to the conversion data frame.
+ds <- ds %>% 
+  dplyr::left_join(ds_cognitive_measure_key, by=c("cognitive_measure"="entry"))
+
+t <- table(ds[ ,"cell_label"], ds[,"study_name"]);t[t==0]<-".";t
+t <- table(ds[ ,"row_label"],  ds[,"study_name"]);t[t==0]<-".";t
+t <- table(ds[ ,"domain"],     ds[,"study_name"]);t[t==0]<-".";t
+# the table below may be impractical
+t <- table(ds[,"cognitive_measure"], ds[,"cell_label"]);t[t==0]<-".";t # raw rows, new columns
+
+
+# Remove the old variable, and rename the cleaned/condensed variable.
+ds <- ds %>%  
+  dplyr::select(-cognitive_construct) %>% 
+  dplyr::rename_("cognitive_measure_0"="cognitive_measure") %>% # store original values
+  dplyr::rename_("cognitive_construct"="domain") %>%
+  dplyr::rename_("cognitive_measure_row"="row_label")%>%
+  dplyr::rename_("cognitive_measure"="cell_label") 
+
+t <- table(ds[ ,"cognitive_measure"], ds[ ,"study_name"]); t[t==0]<-"."; t
+
+d <- ds %>% dplyr::filter(is.na(cognitive_measure)) # remove unidentified measures
+t <- table(d[ ,"cognitive_measure_0"], d[ ,"study_name"]); t[t==0]<-"."; t
 
 
 
