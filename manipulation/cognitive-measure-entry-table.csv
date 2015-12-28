@@ -1,0 +1,16 @@
+domain,row_label,cell_label,entry,notes
+knowledge,information,info,info,literal
+knowledge,information,info,information,alternative  for info
+knowledge,information,waisg,waisgeneral,alternative for info
+knowledge,information,waisg,waisgeneralknowledge,alternative  for info
+knowledge,reading,nart,nart,literal
+knowledge,reading,nart,nationaladultreadingtest,alternative name for nart
+knowledge,synonyms,synon,synon,literal
+knowledge,synonyms,synon,synonyms,alternative for synon
+knowledge,vocabulary,waisvoc,waisvocab,literal
+language,boston naming test,bnt,bnt,literal
+language,boston naming test,bnt,bostonnamingtest,alternative to bnt
+fluency,categories,categor,categories,literal
+fluency,categories,categor,categoryfluency,alternative to categories
+fluency,fluency,fluency,fluency,literal
+fluency,f-a-s phonemic word,fas,fas,literal
