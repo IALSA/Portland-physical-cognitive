@@ -54,40 +54,37 @@ ds <- ds %>%
   dplyr::left_join(ds_model_type_key, by=c("model_type"="entry"))
 
 t <- table(ds$category_short, ds$study_name);t[t==0]<-".";t
-t <- table(ds$model_type, ds$category_short);t[t==0]<-".";t
+t <- table(ds$model_type, ds$category_short);t[t==0]<-".";t # raw rows, new columns
 
 # Remove the old variable, and rename the cleaned/condensed variable.
 ds <- ds %>% 
   dplyr::select(-model_type) %>% 
   dplyr::rename_("model_type"="category_short")
 
-## @knitr correct_model_typ_old
-# ds[ds$model_type %in% c("aheplus", "aeplus") ,"model_type"] <- "aehplus"
-# ds[ds$model_type=="age","model_type"] <- "a" # rename for sorting/consistency purposes
-# ds[ds$model_type=="empty","model_type"] <- "0"
-# t <- table(ds$model_type, ds$study_name);t[t==0]<-".";t
 
 # ---- spell_physical_measure -------------------------------------------------
-t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
-
+t <- table(ds$physical_measure, ds$study_name); t[t==0]<-"."; t
 
 # ---- correct_physical_measure ------------------------------------------------
-# rename obvious typos
-ds[ds$physical_measure %in% c("fevc", "fev1", "fvc", "fev100") ,"physical_measure"] <- "fev"
-## iN ILSE, look up philipp about tug
-ds[(ds$physical_measure == "nophysspec" | ds$physical_measure == "nophyscog")  & ds$physical_construct == "tug","physical_measure"] <- "tug"
-t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
+# Read in the conversion table, and drop the `notes` variable.
+ds_physical_measure_key <- read.csv("./manipulation/physical-measure-entry-table.csv", stringsAsFactors = F) %>%
+  dplyr::select(-notes)
 
-# rename the absense of physical measure
-ds[ds$physical_measure %in% c("nophysspec","nophsyspec","nophyscog", "nophyspec", "nophyssec" ), "physical_measure"] <- "univar"
-# collapse a category
-ds[ds$physical_measure == "hand","physical_measure"] <- "grip"
-# rename suspected misspelling
-ds[ds$physical_measure %in% c("peak"),"physical_measure"] <- "pef"
-ds[ds$physical_measure %in% c("pumonary","pulomnary"),"physical_measure"] <- "pulmonary"
+# Join the model data frame to the conversion data frame.
+ds <- ds %>% 
+  dplyr::left_join(ds_physical_measure_key, by=c("physical_measure"="entry"))
 
-# inspect new names
-t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
+t <- table(ds$category_short, ds$study_name);t[t==0]<-".";t
+t <- table(ds$physical_measure, ds$category_short);t[t==0]<-".";t # raw rows, new columns
+
+# Remove the old variable, and rename the cleaned/condensed variable.
+ds <- ds %>% 
+  dplyr::select(-physical_measure) %>% 
+  dplyr::rename_("physical_measure"="category_short")
+
+t <- table(ds$physical_measure, ds$study_name); t[t==0]<-"."; t
+
+
 
 
 
@@ -95,21 +92,6 @@ t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
 t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
 d <- ds %>% dplyr::group_by_("cognitive_measure") %>% summarize(count=n())
 kable(d)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
