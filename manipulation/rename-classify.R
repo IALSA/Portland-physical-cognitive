@@ -99,7 +99,8 @@ ds_cognitive_measure_key <- read.csv("./manipulation/cognitive-measure-entry-tab
   dplyr::select(-notes)
 
 # Join the model data frame to the conversion data frame.
-ds <- ds %>% 
+# ds <- ds %>% 
+ds <- ds0 %>% 
   dplyr::left_join(ds_cognitive_measure_key, by=c("cognitive_measure"="entry"))
 
 t <- table(ds[ ,"cell_label"], ds[,"study_name"]);t[t==0]<-".";t
@@ -117,10 +118,14 @@ ds <- ds %>%
   dplyr::rename_("cognitive_measure_row"="row_label")%>%
   dplyr::rename_("cognitive_measure"="cell_label") 
 
-t <- table(ds[ ,"cognitive_measure"], ds[ ,"study_name"]); t[t==0]<-"."; t
+# t <- table(ds[ ,"cognitive_measure_0"], ds[ ,"study_name"]); t[t==0]<-"."; t 
+# t <- table(ds[ ,"cognitive_measure"], ds[ ,"study_name"]); t[t==0]<-"."; t  
+# t <- table(ds[ ,"cognitive_measure_row"], ds[ ,"study_name"]); t[t==0]<-"."; 
+
 
 d <- ds %>% dplyr::filter(is.na(cognitive_measure)) # remove unidentified measures
-t <- table(d[ ,"cognitive_measure_0"], d[ ,"study_name"]); t[t==0]<-"."; t
+# show unidentified measures only
+t <- table(d[ ,"cognitive_measure_0"], d[ ,"study_name"]); t[t==0]<-"."; t 
 
 
 
