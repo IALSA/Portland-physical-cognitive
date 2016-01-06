@@ -91,12 +91,13 @@ t <- table(ds$physical_measure, ds$study_name); t[t==0]<-"."; t
 ## @knitr spell_cognitive_measure
 t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
 d <- ds %>% dplyr::group_by_("cognitive_measure","study_name") %>% dplyr::summarize(count=n())
+d <- d %>% dplyr::ungroup() %>% dplyr::arrange_("study_name")
 knitr::kable(d)
-
+ 
 # ---- correct_cognitive_measure ------------------------------------------------
 # Read in the conversion table, and drop the `notes` variable.
 ds_cognitive_measure_key <- read.csv("./manipulation/cognitive-measure-entry-table.csv", stringsAsFactors = F) %>%
-  dplyr::select(-notes)
+  dplyr::select(-notes, -mplus_name, -study_name)
 
 # Join the model data frame to the conversion data frame.
 # ds <- ds %>% 
@@ -127,7 +128,11 @@ d <- ds %>% dplyr::filter(is.na(cognitive_measure)) # remove unidentified measur
 # show unidentified measures only
 t <- table(d[ ,"cognitive_measure_0"], d[ ,"study_name"]); t[t==0]<-"."; t 
 
-
+# ---- test_cog_measures ---------------------------------------
+t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
+d <- ds %>% dplyr::group_by_("cognitive_measure","study_name") %>% dplyr::summarize(count=n())
+d <- d %>% dplyr::ungroup() %>% dplyr::arrange_("study_name")
+knitr::kable(d)
 
 
 
