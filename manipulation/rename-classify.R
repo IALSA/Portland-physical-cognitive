@@ -90,7 +90,7 @@ t <- table(ds$physical_measure, ds$study_name); t[t==0]<-"."; t
 
 ## @knitr spell_cognitive_measure
 t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
-d <- ds %>% dplyr::group_by_("cognitive_measure") %>% dplyr::summarize(count=n())
+d <- ds %>% dplyr::group_by_("cognitive_measure","study_name") %>% dplyr::summarize(count=n())
 knitr::kable(d)
 
 # ---- correct_cognitive_measure ------------------------------------------------
