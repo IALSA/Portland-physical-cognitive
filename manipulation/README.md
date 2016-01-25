@@ -9,6 +9,7 @@ Files in this directory manipulate/groom/munge project data.  The resulting "der
 - a model is uniquely defined by its study and its 4-key ID:  `sex-covariateSet-physicalMeasure-cognitiveMeasure`. ![ model ID](https://github.com/IALSA/IALSA-2015-Portland/blob/master/libs/images/model_naming_convention.png). We used to ask to provide the constructs as well, but we do it ourselves now, so we dropped the `physicalConstruct` and `cogntiveConstruct`. However, we kept `b1` type of indicator,  because it was proven to be useful in file sorting and management, as well as quick recall in reports. 
 
 `rename-classify.R`  does two things:
+
 1. corrects misspellings and human erros in the file names that participants sumbitted
  (a). sex 
  (b). model type - [model-type-entry-table.csv](https://github.com/IALSA/Portland-physical-cognitive/blob/master/manipulation/model-type-entry-table.csv)
