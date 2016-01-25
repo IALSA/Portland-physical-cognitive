@@ -21,7 +21,7 @@ Files in this directory manipulate/groom/munge project data.  The resulting "der
 These two things are accomplished by relational maps, captured by the  `.csv` tables next tot he ID keys above.
 
 ## Current domain map
+The graph reflects the mapping in the `.csv` tables. To adjust the graph, one must adjust the `.csv` tables in the bullets above. 
+![current domain map](https://raw.githubusercontent.com/IALSA/Portland-physical-cognitive/master/analysis/model_space/cog_domain_map/domain_map-1.png)
 
 
-
-The analysis 
