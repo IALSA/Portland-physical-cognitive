@@ -21,6 +21,7 @@ ds <- dsb[ , c("study_name","model_number", "subgroup", "model_type",
             "physical_construct", "cognitive_construct",
             "physical_measure", "cognitive_measure", "converged","mistrust")]
 
+# ----- tweak_data --------------------------------------------------
 cog_domain_order <- c("knowledge","language","fluency",
                       "memory","workmemory","executive",
                       "vsreasoning","speed","mental")
@@ -35,9 +36,6 @@ cog_measures_sorted_domain <- a$cognitive_measure
 
 # ds[ds$physical_measure=="nophys"] <- NULL
 # ds[ds$cognitive_measure=="nocog"] <- NULL
-#
-
-# ----- tweak_data --------------------------------------------------
 ## trim to make more managable
 # keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
 # ds <- dsb[ , keepvar]
@@ -85,7 +83,7 @@ domain_colors <- c("knowledge"='coral3', # green
 
 # ------ define_graph_functions ----------------------
 
-head(dsb)
+# head(dsb)
 
 domain_map <- function(ds, labels){
   # define the data
@@ -129,7 +127,7 @@ domain_map <- function(ds, labels){
                  legend.position="left")
   return(g)
 }
-domain_map(ds)
+# domain_map(ds)
 # a <- domain_map(dsb)
 
 # @knitr reproduce ---------------------------------------
