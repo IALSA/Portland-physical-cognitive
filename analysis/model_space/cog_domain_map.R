@@ -23,8 +23,10 @@ ds <- dsb[ , c("study_name","model_number", "subgroup", "model_type",
 
 # ----- tweak_data --------------------------------------------------
 cog_domain_order <- c("knowledge","language","fluency",
-                      "memory","workmemory","executive",
-                      "vsreasoning","speed","mental")
+                      "memory","workmemory","executive f",
+                      "visuospatial","speed","mental status",
+                      
+                      "perception", "verbal reasoning")
 
 ds$cognitive_construct <- ordered(ds$cognitive_construct, levels=cog_domain_order)
 
@@ -69,16 +71,33 @@ x_name_labels <- c("physical_measure"="Physical Measure",
                    "model_type"="Covariates",
                    "subgroup"="Subgroup")
 
+# domain_colors <- c("knowledge"='coral3', # green
+#                    "language"="aquamarine3", # blueish-green
+#                    "fluency"="cadetblue", # greenish-blue # cyan4 , darkcyan
+#                    "memory"="cornflowerblue", # blue
+#                    "workmemory"="blueviolet", # reddish-blue
+#                    "executive"="darkmagenta", # purple
+#                    "vsreasoning"="darkred", # blueish-red
+#                    "speed"="darkorange2", # organge
+#                    "mental"="azure3" # grey
+# )
+
 domain_colors <- c("knowledge"='coral3', # green
                    "language"="aquamarine3", # blueish-green
                    "fluency"="cadetblue", # greenish-blue # cyan4 , darkcyan
                    "memory"="cornflowerblue", # blue
                    "workmemory"="blueviolet", # reddish-blue
-                   "executive"="darkmagenta", # purple
-                   "vsreasoning"="darkred", # blueish-red
+                   "executive f"="darkmagenta", # purple
+                   "visuospatial"="darkred", # blueish-red
                    "speed"="darkorange2", # organge
-                   "mental"="azure3" # grey
+                   "mental status"="azure3", # grey
+                   
+
+                   "perception" = "white", 
+                   "verbal reasoning" = "white"
 )
+
+
 
 
 # ------ define_graph_functions ----------------------
@@ -114,8 +133,8 @@ domain_map <- function(ds, labels){
   # g <- g + coord_flip()
   # g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(unique(d$cognitive_measure)))
   g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(cog_measures_sorted_domain))
-  g <- g + scale_fill_discrete(name = "Domains")
-  g <- g + scale_fill_manual(values=domain_colors)
+  # g <- g + scale_fill_discrete(name = "Domains")
+  g <- g + scale_fill_manual(values=domain_colors, name = "Domains")
   g <- g + labs(title="Studies")
   g <- g + theme1
   g <- g + theme(axis.text.y =  element_text(size=baseSize-1),

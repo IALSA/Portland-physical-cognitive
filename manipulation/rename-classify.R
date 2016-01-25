@@ -134,6 +134,10 @@ d <- ds %>% dplyr::group_by_("cognitive_measure","study_name") %>% dplyr::summar
 d <- d %>% dplyr::ungroup() %>% dplyr::arrange_("study_name")
 knitr::kable(d)
 
+# ---- test_cog_domain -----------------------------------------
+t <- table(ds$cognitive_measure, ds$cognitive_construct);t[t==0]<-".";t
+
+
 # ---- export_ready_data ---------------------------------------
 saveRDS(ds, "./data-phi-free/derived/results-physical-cognitive.rds")
 
