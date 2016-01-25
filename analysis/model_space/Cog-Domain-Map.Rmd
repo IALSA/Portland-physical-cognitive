@@ -32,7 +32,7 @@ opts_chunk$set(
 
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./reports/model_space_new/cog_domain_map.R") #This allows knitr to call chunks tagged in the underlying *.R file.
+read_chunk("./analysis/model_space/cog_domain_map.R") #This allows knitr to call chunks tagged in the underlying *.R file.
 ```
 
 <!-- Load the sources.  Suppress the output when loading sources. --> 
@@ -40,11 +40,11 @@ read_chunk("./reports/model_space_new/cog_domain_map.R") #This allows knitr to c
 ```
 
 <!-- Load 'sourced' R files.  Suppress the output when loading packages. --> 
-```{r load_packages, echo=echoChunks, message=FALSE}
+```{r load_packages, echo=echoChunks, message=FALSE, warning=FALSE}
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
-```{r declare_globals, echo=echoChunks, results='show', message=FALSE}
+```{r declare_globals, echo=echoChunks, results='show', message=FALSE, , warning=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
@@ -63,12 +63,7 @@ read_chunk("./reports/model_space_new/cog_domain_map.R") #This allows knitr to c
 
 ```{r define_themes, echo=echoChunks, results='show', message=FALSE}
 ```
-## Prototype
 
-Andrea, you've suggested the followed  structure to investigate replication potential across studies and cognitive domains:
-![prototype](./images/Piccinin_Cognitive_Domains.PNG)  
-
-I like how it simplifies the search for overlaps among measures. I developed the following interpretation of the demensionality in the graph above. 
 
 ## Domain Map
 
@@ -79,8 +74,12 @@ I like how it simplifies the search for overlaps among measures. I developed the
 domain_map(ds)
 ```
 
-The domain map above is the actual data provided by the model in the Portland modeling collective right now. The colors  represent various cognitive domains, as identified by the participants in the model names. The colors are meant to be categorical, the change in hue is coincidental with alphabetic name.
+The domain map above is the actual data provided by the model in the Portland modeling collective right now. The colors  represent various cognitive domains, as identified by the participants in the model names. The colors categorical.
 
+## Prototype
+
+Andrea Piccinin suggested the followed  structure to investigate replication potential across studies and cognitive domains:
+![prototype](docs/Piccinin_Cognitive_Domains.PNG)  
 
 
 
