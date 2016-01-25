@@ -30,7 +30,7 @@ cog_domain_order <- c("knowledge","language","fluency",
 
 ds$cognitive_construct <- ordered(ds$cognitive_construct, levels=cog_domain_order)
 
-str(ds$cognitive_construct)
+# str(ds$cognitive_construct)
 
 a <- ds %>% dplyr::group_by_("cognitive_construct","cognitive_measure") %>% summarize(count=n())
 a$cognitive_construct <- ordered(a$cognitive_construct, levels=cog_domain_order)

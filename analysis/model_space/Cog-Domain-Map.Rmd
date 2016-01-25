@@ -2,7 +2,6 @@
 title: "Cog Domain Map - Portland Workshop"
 output:
   html_document:
-    css: ~/GitHub/IALSA-2015-Portland/libs/css/sidebar.css
     keep_md: yes
     toc: yes
 ---
@@ -36,7 +35,7 @@ read_chunk("./analysis/model_space/cog_domain_map.R") #This allows knitr to call
 ```
 
 <!-- Load the sources.  Suppress the output when loading sources. --> 
-```{r load_sources, echo=echoChunks, message=FALSE}
+```{r load_sources, echo=echoChunks, message=FALSE,  warning=FALSE}
 ```
 
 <!-- Load 'sourced' R files.  Suppress the output when loading packages. --> 
@@ -48,26 +47,26 @@ read_chunk("./analysis/model_space/cog_domain_map.R") #This allows knitr to call
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
-```{r, echo=echoChunks, message=FALSE}
+```{r, echo=echoChunks, message=FALSE,  warning=FALSE}
 #Put code in here.  It doesn't call a chunk in the codebehind file.
 ```
 
 <!-- Load the datasets.   -->
-```{r load_data, echo=echoChunks, results='show', message=FALSE}
+```{r load_data, echo=echoChunks, results='show', message=FALSE,  warning=FALSE}
 ```
 
 <!-- Tweak the datasets.   -->
-```{r tweak_data, echo=echoChunks, results='show', message=FALSE}
+```{r tweak_data, echo=echoChunks, results='hide', message=FALSE,  warning=FALSE}
 ```
 
 
-```{r define_themes, echo=echoChunks, results='show', message=FALSE}
+```{r define_themes, echo=echoChunks, results='show', message=FALSE,  warning=FALSE}
 ```
 
 
 ## Domain Map
 
-```{r define_graph_functions, echo=echoChunks, results='hide', message=FALSE}
+```{r define_graph_functions, echo=echoChunks, results='hide', message=FALSE, }
 ```
 
 ```{r domain_map, echo=echoChunks, results='show', message=FALSE, warning=FALSE, fig.width=15, fig.height=10, dpi=300}

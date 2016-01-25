@@ -25,9 +25,6 @@
 
 <!-- Tweak the datasets.   -->
 
-```
- Ord.factor w/ 11 levels "knowledge"<"language"<..: 6 3 3 1 1 2 4 4 9 7 ...
-```
 
 
 
@@ -68,7 +65,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by andkov at 2016-01-25, 13:38 -0800
+Report rendered by andkov at 2016-01-25, 13:42 -0800
 ```
 
 ```
