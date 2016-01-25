@@ -11,12 +11,17 @@ Files in this directory manipulate/groom/munge project data.  The resulting "der
 `rename-classify.R`  does two things:
 
 1. corrects misspellings and human erros in the file names that participants sumbitted
- (a). sex 
- (b). model type - [model-type-entry-table.csv](https://github.com/IALSA/Portland-physical-cognitive/blob/master/manipulation/model-type-entry-table.csv)
- (c). physical Measure  - [physical-measure-entry-table.csv](https://github.com/IALSA/Portland-physical-cognitive/blob/master/manipulation/physical-measure-entry-table.csv)
- (d). cognitive Measure  - [`cognitive-measure-entry-table.csv`](https://github.com/IALSA/Portland-physical-cognitive/blob/master/manipulation/cognitive-measure-entry-table.csv)
+ - (a). sex 
+ - (b). model type - [model-type-entry-table.csv](https://github.com/IALSA/Portland-physical-cognitive/blob/master/manipulation/model-type-entry-table.csv)
+ - (c). physical Measure  - [physical-measure-entry-table.csv](https://github.com/IALSA/Portland-physical-cognitive/blob/master/manipulation/physical-measure-entry-table.csv)
+ - (d). cognitive Measure  - [`cognitive-measure-entry-table.csv`](https://github.com/IALSA/Portland-physical-cognitive/blob/master/manipulation/cognitive-measure-entry-table.csv)
 
 2. Assigns each Measures into one and only one Construct
 
 These two things are accomplished by relational maps, captured by the  `.csv` tables next tot he ID keys above.
 
+## Current domain map
+
+
+
+The analysis 
