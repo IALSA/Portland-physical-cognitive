@@ -24,4 +24,5 @@ These two things are accomplished by relational maps, captured by the  `.csv` ta
 The graph reflects the mapping in the `.csv` tables. To adjust the graph, one must adjust the `.csv` tables in the bullets above. 
 ![current domain map](https://raw.githubusercontent.com/IALSA/Portland-physical-cognitive/master/analysis/model_space/cog_domain_map/domain_map-1.png)
 
+Read the full report that produced the graph at [Portland-physical-cognitive/analysis/model_space/Cog-Domain-Map.md](https://github.com/IALSA/Portland-physical-cognitive/blob/master/analysis/model_space/Cog-Domain-Map.md)
 
