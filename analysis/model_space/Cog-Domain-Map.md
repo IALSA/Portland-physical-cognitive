@@ -30,7 +30,7 @@
 
 ```
 List of 1
- $ strip.text.x:List of 8
+ $ strip.text.x:List of 10
   ..$ family    : NULL
   ..$ face      : NULL
   ..$ colour    : chr "black"
@@ -39,9 +39,12 @@ List of 1
   ..$ vjust     : NULL
   ..$ angle     : num 0
   ..$ lineheight: NULL
+  ..$ margin    : NULL
+  ..$ debug     : NULL
   ..- attr(*, "class")= chr [1:2] "element_text" "element"
  - attr(*, "class")= chr [1:2] "theme" "gg"
  - attr(*, "complete")= logi FALSE
+ - attr(*, "validate")= logi TRUE
 ```
 
 
@@ -49,7 +52,7 @@ List of 1
 
 
 
-![](cog_domain_map/domain_map-1.png) 
+![](cog_domain_map/domain_map-1.png)
 
 The domain map above is the actual data provided by the model in the Portland modeling collective right now. The colors  represent various cognitive domains, as identified by the participants in the model names. The colors categorical.
 
@@ -65,28 +68,28 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by andkov at 2016-01-25, 13:42 -0800
+Report rendered by koval_000 at 2016-02-29, 09:03 -0800
 ```
 
 ```
 R version 3.2.3 (2015-12-10)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 7 x64 (build 7601) Service Pack 1
+Running under: Windows 8.1 x64 (build 9600)
 
 locale:
-[1] LC_COLLATE=English_Canada.1252  LC_CTYPE=English_Canada.1252    LC_MONETARY=English_Canada.1252
-[4] LC_NUMERIC=C                    LC_TIME=English_Canada.1252    
+[1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252    LC_MONETARY=English_United States.1252
+[4] LC_NUMERIC=C                           LC_TIME=English_United States.1252    
 
 attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] lattice_0.20-33 dplyr_0.4.3     ggplot2_1.0.1   shiny_0.12.0    knitr_1.11     
+[1] lattice_0.20-33 dplyr_0.4.3     ggplot2_2.0.0   shiny_0.13.1    knitr_1.12.3   
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-45      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
- [7] R6_2.0.1         stringr_1.0.0    plyr_1.8.2       tools_3.2.3      parallel_3.2.3   gtable_0.1.2    
-[13] DBI_0.3.1        htmltools_0.2.6  lazyeval_0.1.10  assertthat_0.1   yaml_2.1.13      digest_0.6.8    
-[19] reshape2_1.4.1   formatR_1.2      evaluate_0.8     mime_0.3         rmarkdown_0.9.2  stringi_0.4-1   
-[25] scales_0.2.4     httpuv_1.3.2     proto_0.3-10    
+ [1] Rcpp_0.12.3      magrittr_1.5     munsell_0.4.3    colorspace_1.2-6 xtable_1.8-2     R6_2.1.2        
+ [7] stringr_1.0.0    plyr_1.8.3       tools_3.2.3      parallel_3.2.3   gtable_0.1.2     DBI_0.3.1       
+[13] htmltools_0.3    lazyeval_0.1.10  assertthat_0.1   yaml_2.1.13      digest_0.6.9     reshape2_1.4.1  
+[19] formatR_1.2.1    evaluate_0.8     mime_0.4         rmarkdown_0.9.5  stringi_1.0-1    scales_0.3.0    
+[25] httpuv_1.3.3    
 ```
