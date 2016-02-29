@@ -88,13 +88,11 @@ domain_colors <- c("knowledge"='coral3', # green
                    "memory"="cornflowerblue", # blue
                    "workmemory"="blueviolet", # reddish-blue
                    "executive f"="darkmagenta", # purple
-                   "visuospatial"="darkred", # blueish-red
+                   "fluid reasoning"="darkred", # blueish-red
                    "speed"="darkorange2", # organge
                    "mental status"="azure3", # grey
+                   "perception" = "white" 
                    
-
-                   "perception" = "white", 
-                   "verbal reasoning" = "white"
 )
 
 
